@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Files in the config/locales directory are used for internationalization
 # and are automatically loaded by Rails. If you want to use locales other
 # than English, add the necessary files in this directory.
@@ -18,6 +19,10 @@
 #
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
+=======
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+>>>>>>> 6c34f5b556a30b73cc3c34b721c23494660503c9
 
 en:
   hello: "Hello world"
