@@ -9,10 +9,12 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
+gem 'omniauth-github'
+gem 'slim-rails'
+gem 'bootstrap-sass'
 
 group :doc do
   gem 'sdoc', require: false
