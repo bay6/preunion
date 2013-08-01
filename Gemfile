@@ -20,10 +20,18 @@ gem 'bootstrap_helper'
 
 group :test, :development do
   gem 'pry-debugger'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end
 
 group :doc do
   gem 'sdoc', require: false
+end
+
+group :development do
+  gem 'thin'
+  # guard start
+  gem 'guard-rspec'
 end
 
 # Use ActiveModel has_secure_password
