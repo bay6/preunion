@@ -2,8 +2,8 @@ class ChangeStatusOfMissionsToInteger < ActiveRecord::Migration
   def up
     if Rails.env.production?
     connection.execute(%q{
-        alter table tweets
-        alter column number
+        alter table missions
+        alter column status
         type integer using cast(number as integer)
     })
     else
