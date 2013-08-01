@@ -1,5 +1,5 @@
-#source 'https://rubygems.org'
-source 'http://ruby.taobao.org'
+source 'https://rubygems.org'
+#source 'http://ruby.taobao.org'
 
 ruby '2.0.0'
 gem 'rails', '4.0.0'
@@ -16,6 +16,9 @@ gem 'omniauth-github'
 gem 'slim-rails'
 gem 'bootstrap-sass'
 gem 'simple_form', '~> 3.0.0.rc'
+group :test, :development do
+  gem 'pry-debugger'
+end
 
 group :doc do
   gem 'sdoc', require: false
