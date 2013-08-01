@@ -1,7 +1,7 @@
 class Mission < ActiveRecord::Base
 
-  belongs_to :creator, class_name: "User", foreign_key: "creator"
-  belongs_to :assigned_to, class_name: "User", foreign_key: "assigned_to"
+  belongs_to :creator, class_name: "User"
+  belongs_to :assigned_to, class_name: "User"
 
   STATUS = {
     0 => "新建",

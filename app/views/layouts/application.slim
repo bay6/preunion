@@ -10,5 +10,6 @@ html
   body
     = render 'shared/menu'
     .main
+      = notice_message
       = yield
       = javascript_include_tag "application", "data-turbolinks-track" => true
