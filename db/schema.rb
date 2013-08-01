@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130731194811) do
+ActiveRecord::Schema.define(version: 20130801113250) do
 
   create_table "missions", force: true do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "creator"
-    t.integer  "assigned_to"
+    t.integer  "creator_id"
+    t.integer  "assigned_to_id"
     t.integer  "status"
     t.datetime "start_time"
     t.datetime "finish_time"

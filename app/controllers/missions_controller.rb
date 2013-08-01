@@ -1,5 +1,6 @@
 class MissionsController < ApplicationController
-  before_action :set_mission, only: [:show, :edit, :update, :destroy]
+  before_action :set_mission, only: [:show, :edit, :update]
+  before_action :require_login, only: [:new, :create, :update, :edit]
 
   # GET /missions
   # GET /missions.json
@@ -52,17 +53,8 @@ class MissionsController < ApplicationController
     end
   end
 
-  # DELETE /missions/1
-  # DELETE /missions/1.json
-  def destroy
-    @mission.destroy
-    respond_to do |format|
-      format.html { redirect_to missions_url }
-      format.json { head :no_content }
-    end
-  end
-
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_mission
       @mission = Mission.find(params[:id])
@@ -71,5 +63,16 @@ class MissionsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def mission_params
       params.require(:mission).permit(:name, :description, :creator, :assigned_to, :status, :start_time, :finish_time)
+    end
+
+    def require_login
+      unless logged_in?
+        flash[:error] = "You must be logged in to access this section"
+        redirect_to root_url
+      end
+    end
+
+    def logged_in?
+      !!current_user
     end
 end

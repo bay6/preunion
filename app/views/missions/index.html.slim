@@ -10,23 +10,19 @@ table.table.table-striped
       th Status
       th Start time
       th Finish time
-      th
-      th
-      th
+      th Action
 
   tbody
     - @missions.each do |mission|
       tr
-        td = mission.name
+        td = link_to mission.name, mission
         td = mission.description
         td = mission.creator.try(:nickname)
         td = mission.assigned_to.try(:nickname)
         td = mission.human_status
         td = mission.start_time
         td = mission.finish_time
-        td = link_to 'Show', mission
         td = link_to 'Edit', edit_mission_path(mission)
-        td = link_to 'Destroy', mission, :data => {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 
