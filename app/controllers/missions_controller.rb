@@ -26,7 +26,7 @@ class MissionsController < ApplicationController
   # POST /missions.json
   def create
     @mission = Mission.new(mission_params)
-    @mission.creator_id = current_user.id
+    @mission.creator = current_user
 
     respond_to do |format|
       if @mission.save
