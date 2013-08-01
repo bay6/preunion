@@ -1,5 +1,5 @@
-#source 'https://rubygems.org'
-source 'http://ruby.taobao.org'
+source 'https://rubygems.org'
+#source 'http://ruby.taobao.org'
 
 ruby '2.0.0'
 gem 'rails', '4.0.0'
@@ -16,6 +16,13 @@ gem 'omniauth-github'
 gem 'slim-rails'
 gem 'bootstrap-sass'
 gem 'simple_form', '~> 3.0.0.rc'
+gem 'bootstrap_helper'
+
+group :test, :development do
+  gem 'pry-debugger'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+end
 
 group :doc do
   gem 'sdoc', require: false
@@ -23,12 +30,8 @@ end
 
 group :development do
   gem 'thin'
+  # guard start
   gem 'guard-rspec'
-end
-
-group :development, :test do
-  gem 'rspec-rails'
-  gem 'factory_girl_rails'
 end
 
 # Use ActiveModel has_secure_password
