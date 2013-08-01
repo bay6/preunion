@@ -1,6 +1,6 @@
 class MissionsController < ApplicationController
   before_action :set_mission, only: [:show, :edit, :update]
-  before_action :require_login, only: [:new, :create, :update, :edit]
+  before_action :require_login, only: [:create]
 
   # GET /missions
   # GET /missions.json
@@ -67,7 +67,7 @@ class MissionsController < ApplicationController
 
     def require_login
       unless logged_in?
-        flash[:error] = "You must be logged in to access this section"
+        flash[:error] = t("error.require_login")
         redirect_to root_url
       end
     end
