@@ -4,7 +4,7 @@ class ChangeStatusOfMissionsToInteger < ActiveRecord::Migration
     connection.execute(%q{
         alter table missions
         alter column status
-        type integer using cast(number as integer)
+        type integer using cast(status as integer)
     })
     else
       change_column :missions, :status, :integer
