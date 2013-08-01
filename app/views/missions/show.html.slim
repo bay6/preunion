@@ -1,0 +1,27 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @mission.name
+p
+  strong Description:
+  = @mission.description
+p
+  strong Creator:
+  = @mission.creator.try(:nickname)
+p
+  strong Assigned to:
+  = @mission.assigned_to.try(:nickname)
+p
+  strong Status:
+  = @mission.human_status
+p
+  strong Start time:
+  = @mission.start_time
+p
+  strong Finish time:
+  = @mission.finish_time
+
+= link_to 'Edit', edit_mission_path(@mission)
+'|
+= link_to 'Back', missions_path

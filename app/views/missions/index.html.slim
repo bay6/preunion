@@ -1,0 +1,33 @@
+h1 Listing missions
+
+table.table.table-striped
+  thead
+    tr
+      th Name
+      th Description
+      th Creator
+      th Assigned to
+      th Status
+      th Start time
+      th Finish time
+      th
+      th
+      th
+
+  tbody
+    - @missions.each do |mission|
+      tr
+        td = mission.name
+        td = mission.description
+        td = mission.creator.try(:nickname)
+        td = mission.assigned_to.try(:nickname)
+        td = mission.human_status
+        td = mission.start_time
+        td = mission.finish_time
+        td = link_to 'Show', mission
+        td = link_to 'Edit', edit_mission_path(mission)
+        td = link_to 'Destroy', mission, :data => {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Mission', new_mission_path

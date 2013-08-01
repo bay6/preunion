@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
 
+  has_many :created_missions, class_name: "Mission", foreign_key: "creator"
+  has_many :assigned_missions, class_name: "Mission", foreign_key: "assigned_to"
+
   class << self
     def find_or_create_from_auth_hash auth_hash
       @user = self.where(uid: auth_hash.uid, provider: :github).

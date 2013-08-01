@@ -8,3 +8,6 @@
 
       = render 'shared/user_nav'
       = link_to t('site_name', default: 'site'), root_path, class: 'brand'
+      .container-fluid.nav-collapse
+        ul.nav
+          li= link_to "任务系统", missions_path
