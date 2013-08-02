@@ -10,7 +10,7 @@ hr
           .thumbnail
             .caption
               h5 = link_to mission.name, mission
-              p = mission.description.shorter(25).html_safe
+              p = mission.description.truncate(25).html_safe
 
       br
 

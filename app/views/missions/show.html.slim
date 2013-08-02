@@ -5,7 +5,7 @@
     div.muted
       span = link_to @mission.creator.nickname, '#'
       span = " • " + t('common.published_at')
-      span = @mission.created_at.strftime("%Y-%m-%d %H:%M")
+      span = @mission.created_at.to_s(:db)
 
       - if current_user == @mission.creator
         span.edit = link_to t("common.edit"), edit_mission_path(@mission)

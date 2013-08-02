@@ -1,21 +1,6 @@
 class MissionsController < ApplicationController
-  before_action :set_mission, only: [:show, :edit, :update, :accept]
   before_action :load_mission, only: [:create]
   load_and_authorize_resource
-
-  def index
-    @missions = Mission.all
-  end
-
-  def show
-  end
-
-  def new
-    @mission = Mission.new
-  end
-
-  def edit
-  end
 
   def create
     @mission = Mission.new(mission_params)
@@ -42,10 +27,6 @@ class MissionsController < ApplicationController
   end
 
   private
-
-    def set_mission
-      @mission = Mission.find(params[:id])
-    end
 
     def mission_params
       params.require(:mission).permit(:name, :description, :status)
