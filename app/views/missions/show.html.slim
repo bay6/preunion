@@ -18,3 +18,7 @@
       li
         = t('missions.form.status') + ": "
         = @mission.human_status
+    - if current_user and @mission.available_to_accept?
+      = link_to t("missions.accept"),
+        accept_mission_path(@mission), method: "post",
+        class: "registry-activity btn btn-success btn-large btn-block"

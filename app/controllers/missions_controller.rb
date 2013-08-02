@@ -1,5 +1,5 @@
 class MissionsController < ApplicationController
-  before_action :set_mission, only: [:show, :edit, :update]
+  before_action :set_mission, only: [:show, :edit, :update, :accept]
   before_action :load_mission, only: [:create]
   load_and_authorize_resource
 
@@ -34,6 +34,11 @@ class MissionsController < ApplicationController
     else
       render action: 'edit'
     end
+  end
+
+  def accept
+    @mission.update_attributes(assigned_to: current_user, status: 1)
+    redirect_to :back, notice: t("missions.accept_success")
   end
 
   private

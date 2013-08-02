@@ -17,4 +17,8 @@ class Mission < ActiveRecord::Base
     STATUS[status||0]
   end
 
+  def available_to_accept?
+    status == 0 && assigned_to.nil?
+  end
+
 end

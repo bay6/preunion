@@ -9,3 +9,5 @@ zh_CN:
     creator: "创建者"
     edit: "编辑任务"
     new: "新建任务"
+    accept: "接受任务"
+    accept_success: "接受任务成功"
