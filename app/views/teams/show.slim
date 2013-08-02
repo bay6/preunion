@@ -21,7 +21,8 @@
       = link_to t("teams.join"), [:join, @team], method: "post",
         class: "registry-activity btn btn-success btn-large btn-block"
     - if can? :manage, Team
-      = link_to t("edit"), [:edit, @team],
+      = link_to t("common.edit"), [:edit, @team],
         class: "registry-activity btn btn-success btn-large btn-block"
-      = link_to t("destroy"), team_path(@team), method: 'delete',
+      = link_to t("common.destroy"), team_path(@team), method: 'delete',
+        confirm: t('common.destroy_confirm'), 
         class: "registry-activity btn btn-danger btn-large btn-block"

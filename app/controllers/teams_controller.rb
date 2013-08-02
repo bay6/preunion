@@ -20,20 +20,20 @@ class TeamsController < ApplicationController
   def join
     @team.users << current_user
     if @team.save
-      redirect_to team_path(@team), notice: t('team.join_success')
+      redirect_to team_path(@team), notice: t('teams.join_success')
     else
-      redirect_to team_path(@team), notice: t('team.join_fail')
+      redirect_to team_path(@team), notice: t('teams.join_fail')
     end
   end
 
   def quit
     @team.users.delete(current_user)
-    redirect_to team_path(@team), notice: t('team.quit_success')
+    redirect_to team_path(@team), notice: t('teams.quit_success')
   end
 
   def destroy
     @team.destroy
-    redirect_to teams_path, notice: t('team.destroy_success')
+    redirect_to teams_path, notice: t('common.destroy_success')
   end
 
   private
