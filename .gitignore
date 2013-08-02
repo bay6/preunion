@@ -15,7 +15,6 @@
 /log/*.log
 /tmp
 
-/config/database.yml
-/config/initializers/secret_token.rb
-/config/setting.yml
-
+config/database.yml
+config/initializers/secret_token.rb
+config/setting.yml

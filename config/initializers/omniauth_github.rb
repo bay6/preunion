@@ -1,6 +1,7 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
   if Rails.env.production?
-    provider :github, '49606f66f441df4f7931', 'baa2acb69c2a5a42076bb4438b4e8469d9a11995'
+    # callback is point to http://thawing-basin-6896.herokuapp.com on heroku
+    provider :github, '857fff6a73997e787d5a', '277c4102c65e7598e190c089397a66aba18e4534'
   elsif Rails.env.development?
     # callback is point to http://localhost:3000
     # if you want to auth in local, make sure your port is 3000
