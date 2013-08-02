@@ -1,6 +1,7 @@
 class MissionsController < ApplicationController
   before_action :set_mission, only: [:show, :edit, :update]
-  before_action :require_login, only: [:create]
+  before_action :load_mission, only: [:create]
+  load_and_authorize_resource
 
   # GET /missions
   # GET /missions.json
@@ -62,17 +63,11 @@ class MissionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def mission_params
-      params.require(:mission).permit(:name, :description, :creator, :assigned_to, :status, :start_time, :finish_time)
+      params.require(:mission).permit(:name, :description, :status)
     end
 
-    def require_login
-      unless logged_in?
-        flash[:error] = t("error.require_login")
-        redirect_to root_url
-      end
+    def load_mission
+      @mission = Mission.new(mission_params)
     end
 
-    def logged_in?
-      !!current_user
-    end
 end

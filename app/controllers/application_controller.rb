@@ -13,4 +13,9 @@ class ApplicationController < ActionController::Base
     @current_user = user
     session[:user_id] = user.try(:id)
   end
+
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :notice => t("error.require_permission")
+  end
+
 end

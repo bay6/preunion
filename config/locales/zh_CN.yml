@@ -1,4 +1,6 @@
 zh_CN:
   site_name: '工会任务'
   error:
-    require_login: "需要登录才能执行此操作"
+    require_permission: "您没有根据执行此操作"
+  common:
+    login_success: "登录成功"
