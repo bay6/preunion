@@ -1,27 +1,20 @@
-p#notice = notice
+.row-fluid.mission-show
+  .span9.well
+    h4
+      = @mission.name
+    div.muted
+      span = link_to @mission.creator.nickname, '#'
+      span = " • " + t('common.published_at')
+      span = @mission.created_at.strftime("%Y-%m-%d %H:%M")
 
-p
-  strong Name:
-  = @mission.name
-p
-  strong Description:
-  = @mission.description
-p
-  strong Creator:
-  = @mission.creator.try(:nickname)
-p
-  strong Assigned to:
-  = @mission.assigned_to.try(:nickname)
-p
-  strong Status:
-  = @mission.human_status
-p
-  strong Start time:
-  = @mission.start_time
-p
-  strong Finish time:
-  = @mission.finish_time
+      - if current_user == @mission.creator
+        span.edit = link_to t("common.edit"), edit_mission_path(@mission)
+    hr
+    p = simple_format @mission.description.html_safe
 
-= link_to 'Edit', edit_mission_path(@mission)
-'|
-= link_to 'Back', missions_path
+  .span3.well
+
+    ul
+      li
+        = t('missions.form.status') + ": "
+        = @mission.human_status

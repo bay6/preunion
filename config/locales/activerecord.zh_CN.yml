@@ -1,0 +1,12 @@
+zh_CN:
+  activerecord:
+    errors:
+      models:
+        mission:
+          attributes:
+            name:
+              blank: "名称不能为空"
+            description:
+              blank: "描述不能为空"
+            status:
+              blank: "状态不能为空"

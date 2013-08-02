@@ -2,9 +2,13 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :name
-    = f.input :description
-    = f.input :status, collection: Mission::STATUS.map{|k,v| [v, k]}
+    = f.input :name, label: t(".name")
+
+    = f.input :status, label: t(".status"),
+      collection: Mission::STATUS.map{|k,v| [v, k]}
+
+    = f.input :description, label: t(".description"),
+      :input_html => { :class => "span5", :rows => 5 }
 
   .form-actions
-    = f.button :submit, class: "btn-primary"
+    = f.button :submit, value: t("common.save"), class: "btn-primary"
