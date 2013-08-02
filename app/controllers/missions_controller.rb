@@ -22,7 +22,10 @@ class MissionsController < ApplicationController
   end
 
   def accept
-    @mission.update_attributes(assigned_to: current_user, status: 1)
+    @mission.update_attributes(assigned_to: current_user,
+                               status: 1,
+                               start_time: Time.now,
+                              )
     redirect_to :back, notice: t("missions.accept_success")
   end
 
