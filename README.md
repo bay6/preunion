@@ -27,6 +27,20 @@ union将划分为不同等级小任务，反复练习重构后会重写到主uni
   6. 生成成员，成长值排名，月份，周，迭代周期排名
 
 
+### 设置管理员帐号
+
+复制config/setting.yml.sample为config/setting.yml
+
+将管理员的邮箱(需要小写)加到里面:
+
+```
+defaults: &defaults
+  admin_emails:
+    - "admin@admin.com"
+    - "williamnewbie@gmail.com"
+...
+```
+
 ### 贡献
 
 1. folk it

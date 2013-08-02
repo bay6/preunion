@@ -11,4 +11,9 @@ class User < ActiveRecord::Base
                         nickname: auth_hash.info.nickname)
     end
   end
+
+  def admin?
+    Setting.admin_emails.include? email.downcase
+  end
+
 end

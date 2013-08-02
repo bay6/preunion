@@ -1,0 +1,13 @@
+zh_CN:
+  missions:
+    form:
+      name: "名称"
+      description: "描述"
+      status: "状态"
+    index: "任务列表"
+    create: "创建任务"
+    creator: "创建者"
+    edit: "编辑任务"
+    new: "新建任务"
+    accept: "接受任务"
+    accept_success: "接受任务成功"

@@ -1,29 +1,17 @@
-h1 Listing missions
+h4 = t('missions.index')
+hr
 
-table.table.table-striped
-  thead
-    tr
-      th Name
-      th Description
-      th Creator
-      th Assigned to
-      th Status
-      th Start time
-      th Finish time
-      th Action
+.row-fluid
+  .span12
 
-  tbody
-    - @missions.each do |mission|
-      tr
-        td = link_to mission.name, mission
-        td = mission.description
-        td = mission.creator.try(:nickname)
-        td = mission.assigned_to.try(:nickname)
-        td = mission.human_status
-        td = mission.start_time
-        td = mission.finish_time
-        td = link_to 'Edit', edit_mission_path(mission)
+    ul.thumbnails
+      - @missions.each do |mission|
+        li.span3.box
+          .thumbnail
+            .caption
+              h5 = link_to mission.name, mission
+              p = mission.description.truncate(25).html_safe
 
-br
+      br
 
-= link_to 'New Mission', new_mission_path
+= link_to t('missions.create'), new_mission_path

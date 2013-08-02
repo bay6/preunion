@@ -1,9 +1,11 @@
 class SessionController < ApplicationController
 
+  skip_authorization_check
+
   def auth
     @user = User.find_or_create_from_auth_hash(auth_hash)
     self.current_user = @user
-    redirect_to root_path, notice: t('auth_success')
+    redirect_to root_path, notice: t('common.login_success')
   end
 
   def destroy

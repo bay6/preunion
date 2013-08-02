@@ -17,6 +17,8 @@ gem 'slim-rails'
 gem 'bootstrap-sass'
 gem 'simple_form', '~> 3.0.0.rc'
 gem 'bootstrap_helper'
+gem 'settingslogic'
+gem 'cancan'
 
 group :test, :development do
   gem 'pry-debugger'
