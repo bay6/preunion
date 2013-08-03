@@ -13,11 +13,17 @@ class MissionsController < ApplicationController
     end
   end
 
+  def edit
+    unless current_user == @mission.creator
+      redirect_to missions_path, notice: t("error.require_permission")
+    end
+  end
+
   def update
-    if @mission.update(mission_params)
+    if current_user == @mission.creator && @mission.update(mission_params)
       redirect_to @mission, notice: t('common.update_success')
     else
-      render action: 'edit'
+      render action: 'edit', notice: t('common.update_not_success')
     end
   end
 
