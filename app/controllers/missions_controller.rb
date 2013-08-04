@@ -5,6 +5,7 @@ class MissionsController < ApplicationController
   def create
     @mission = Mission.new(mission_params)
     @mission.creator = current_user
+    @mission.status = 0
 
     if @mission.save
       redirect_to @mission, notice: t('common.create_success')
