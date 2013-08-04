@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 
   has_many :created_missions, class_name: "Mission", foreign_key: "creator_id"
   has_many :assigned_missions, class_name: "Mission", foreign_key: "assigned_to_id"
+  has_and_belongs_to_many :teams
 
   class << self
     def find_or_create_from_auth_hash auth_hash
@@ -14,6 +15,10 @@ class User < ActiveRecord::Base
 
   def admin?
     Setting.admin_emails.include? email.downcase
+  end
+
+  def avatar_url
+    @avatar_url ||= "http://gravatar.com/avatar/#{Digest::MD5::hexdigest(email).downcase}.png?s=100"
   end
 
 end

@@ -20,6 +20,7 @@ class Ability
   def normal_user(user)
     guest(user)
     can [:accept], Mission
+    can [:join, :quit], Team
   end
 
   def guest(user)
