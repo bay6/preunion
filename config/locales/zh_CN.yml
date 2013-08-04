@@ -7,7 +7,11 @@ zh_CN:
     create_success: "创建成功"
     update_success: "修改成功"
     update_not_success: "修改没有成功"
+    destroy_success: "删除成功"
     save: "保存"
     edit: "编辑"
     published_at: "发布于"
     back: "返回"
+    new: "新建"
+    destroy: '删除'
+    destroy_confirm: '删除是一种危险的操作，确认？'
