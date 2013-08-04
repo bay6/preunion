@@ -27,12 +27,13 @@ class MissionsController < ApplicationController
     end
   end
 
-  def accept
-    @mission.update_attributes(assigned_to: current_user,
-                               status: 1,
-                               start_time: Time.now,
-                              )
-    redirect_to :back, notice: t("missions.accept_success")
+  def perform_action
+    if @mission.perform_action(params[:action_name], current_user)
+      redirect_to :back, notice: t("missions.#{params[:action_name]}_success")
+    else
+      redirect_to :back, notice: t("missions.#{params[:action_name]}_fail")
+    end
+
   end
 
   private
