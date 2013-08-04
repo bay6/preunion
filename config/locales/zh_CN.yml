@@ -6,6 +6,7 @@ zh_CN:
     login_success: "登录成功"
     create_success: "创建成功"
     update_success: "修改成功"
+    update_not_success: "修改没有成功"
     destroy_success: "删除成功"
     save: "保存"
     edit: "编辑"

@@ -4,8 +4,9 @@
   .form-inputs
     = f.input :name, label: t(".name")
 
-    = f.input :status, label: t(".status"),
-      collection: Mission::STATUS.map{|k,v| [v, k]}
+    - unless f.object.new_record?
+      = f.input :status, label: t(".status"),
+        collection: Mission::STATUS.map{|k,v| [v, k]}
 
     = f.input :description, label: t(".description"),
       :input_html => { :class => "span5", :rows => 5 }

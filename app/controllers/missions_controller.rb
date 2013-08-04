@@ -5,6 +5,7 @@ class MissionsController < ApplicationController
   def create
     @mission = Mission.new(mission_params)
     @mission.creator = current_user
+    @mission.status = 0
 
     if @mission.save
       redirect_to @mission, notice: t('common.create_success')
@@ -13,20 +14,27 @@ class MissionsController < ApplicationController
     end
   end
 
-  def update
-    if @mission.update(mission_params)
-      redirect_to @mission, notice: t('common.update_success')
-    else
-      render action: 'edit'
+  def edit
+    unless current_user == @mission.creator
+      redirect_to missions_path, notice: t("error.require_permission")
     end
   end
 
-  def accept
-    @mission.update_attributes(assigned_to: current_user,
-                               status: 1,
-                               start_time: Time.now,
-                              )
-    redirect_to :back, notice: t("missions.accept_success")
+  def update
+    if current_user == @mission.creator && @mission.update(mission_params)
+      redirect_to @mission, notice: t('common.update_success')
+    else
+      render action: 'edit', notice: t('common.update_not_success')
+    end
+  end
+
+  def perform_action
+    if @mission.perform_action(params[:action_name], current_user)
+      redirect_to :back, notice: t("missions.#{params[:action_name]}_success")
+    else
+      redirect_to :back, notice: t("missions.#{params[:action_name]}_fail")
+    end
+
   end
 
   private

@@ -1,5 +1,5 @@
 .row-fluid.mission-show
-  .span9.well
+  .span8.well
     h4
       = @mission.name
     div.muted
@@ -12,13 +12,14 @@
     hr
     p = simple_format @mission.description.html_safe
 
-  .span3.well
+  .span4.well
 
-    ul
-      li
-        = t('missions.form.status') + ": "
-        = @mission.human_status
-    - if current_user and @mission.available_to_accept?
-      = link_to t("missions.accept"),
-        accept_mission_path(@mission), method: "post",
-        class: "registry-activity btn btn-success btn-large btn-block"
+    = @mission.status_description
+    - if current_user
+      - action = @mission.action_for(current_user)
+      - unless action.nil?
+        hr
+        = link_to t("missions.#{action}"),
+          mission_perform_action_path(@mission, action_name: action),
+          method: "post",
+          class: "registry-activity btn btn-success btn-large btn-block"

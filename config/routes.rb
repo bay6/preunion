@@ -1,11 +1,12 @@
 Preunion::Application.routes.draw do
   resources :users
 
-  resources :missions do
-    member do
-      post :accept
-    end
-  end
+  post "/missions/:id/:action_name",
+    :to => 'missions#perform_action',
+    :as => :mission_perform_action
+
+  resources :missions
+
 
   resources :teams do
     member do
