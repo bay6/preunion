@@ -11,7 +11,7 @@
         - if current_user == @mission.creator
           span.edit = link_to t("common.edit"), edit_mission_path(@mission)
       hr
-      p = simple_format @mission.description.html_safe
+      p = markdown @mission.description.html_safe
     .comments.well
       = render partial: "comments", locals: {comments: @mission.comments}
     .new-comment.well
