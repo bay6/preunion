@@ -2,6 +2,10 @@ class MissionsController < ApplicationController
   before_action :load_mission, only: [:create]
   load_and_authorize_resource
 
+  def show
+    @latest_missions = Mission.order("created_at DESC").limit(10)
+  end
+
   def create
     @mission = Mission.new(mission_params)
     @mission.creator = current_user

@@ -17,14 +17,21 @@
     .new-comment.well
       = render "new_comment"
 
-  .span4.well
+  .span4
+    .action.well
+      = @mission.status_description
+      - if current_user
+        - action = @mission.action_for(current_user)
+        - unless action.nil?
+          hr
+          = link_to t("missions.#{action}"),
+            mission_perform_action_path(@mission, action_name: action),
+            method: "post",
+            class: "registry-activity btn btn-success btn-large btn-block"
 
-    = @mission.status_description
-    - if current_user
-      - action = @mission.action_for(current_user)
-      - unless action.nil?
-        hr
-        = link_to t("missions.#{action}"),
-          mission_perform_action_path(@mission, action_name: action),
-          method: "post",
-          class: "registry-activity btn btn-success btn-large btn-block"
+    .latest.well
+      h5 = t("missions.latest")
+      hr
+      - @latest_missions.each do |mission|
+        .mission-name
+          = link_to mission.name.truncate(24), mission_path(mission)
