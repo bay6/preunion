@@ -1,12 +1,11 @@
 Preunion::Application.routes.draw do
   resources :users
 
-  post "/missions/:id/:action_name",
-    :to => 'missions#perform_action',
-    :as => :mission_perform_action
+  resources :missions do
+    resources :comments
+  end
 
-  resources :missions
-
+  post 'comment/preview', to: 'comments#preview', as: 'comment_preview'
 
   resources :teams do
     member do
@@ -17,5 +16,9 @@ Preunion::Application.routes.draw do
   delete 'session', to: 'session#destroy', as: :sign_out
   get '/auth/github/callback', to: 'session#auth'
   root to: 'home#index'
+
+  post "/missions/:id/:action_name",
+    :to => 'missions#perform_action',
+    :as => :mission_perform_action
 
 end

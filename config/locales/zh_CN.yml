@@ -10,6 +10,7 @@ zh_CN:
     destroy_success: "删除成功"
     save: "保存"
     edit: "编辑"
+    preview: "预览"
     published_at: "发布于"
     back: "返回"
     new: "新建"

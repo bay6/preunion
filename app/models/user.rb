@@ -21,4 +21,8 @@ class User < ActiveRecord::Base
     @avatar_url ||= "http://gravatar.com/avatar/#{Digest::MD5::hexdigest(email).downcase}.png?s=100"
   end
 
+  def github_homepage
+    @github_homepage ||= "https://github.com/#{nickname}"
+  end
+
 end

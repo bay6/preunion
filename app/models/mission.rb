@@ -3,6 +3,8 @@ class Mission < ActiveRecord::Base
   belongs_to :creator, class_name: "User"
   belongs_to :assigned_to, class_name: "User"
 
+  has_many :comments, :as => :commentable
+
   validates_presence_of :name, :description, :status
 
   STATUS = {
