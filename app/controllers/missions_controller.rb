@@ -3,11 +3,11 @@ class MissionsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @events = Event.order("created_at DESC").limit(15)
+    @events = Event.order("id desc").limit(15)
   end
 
   def show
-    @latest_missions = Mission.order("created_at DESC").limit(10)
+    @latest_missions = Mission.order("id desc").limit(10)
   end
 
   def create
