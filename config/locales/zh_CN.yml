@@ -11,8 +11,15 @@ zh_CN:
     save: "保存"
     edit: "编辑"
     preview: "预览"
+    create: "创建"
+    accept: "接受"
+    finish: "完成"
+    confirm: "验收"
+    close: "关闭"
+    comment: "评论"
     published_at: "发布于"
     back: "返回"
     new: "新建"
     destroy: '删除'
     destroy_confirm: '删除是一种危险的操作，确认？'
+    login: "登录"
