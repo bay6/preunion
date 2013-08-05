@@ -19,6 +19,8 @@ gem 'simple_form', '~> 3.0.0.rc'
 gem 'bootstrap_helper'
 gem 'settingslogic'
 gem 'cancan'
+gem 'redcarpet'
+gem 'md_emoji'
 
 group :test, :development do
   gem 'pry-debugger'

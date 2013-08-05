@@ -18,7 +18,8 @@ class User < ActiveRecord::Base
   end
 
   def avatar_url
-    @avatar_url ||= "http://gravatar.com/avatar/#{Digest::MD5::hexdigest(email).downcase}.png?s=100"
+    avatar_id = Digest::MD5::hexdigest(email.downcase)
+    @avatar_url ||= "http://gravatar.com/avatar/#{avatar_id}.png?s=100"
   end
 
 end

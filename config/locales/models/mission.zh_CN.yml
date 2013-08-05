@@ -27,3 +27,6 @@ zh_CN:
       proposed: "已完成该任务,等待验收中"
       finished: "已完成该任务,且验收通过"
       closed: "该任务已关闭"
+    submit_comment: "提交评论"
+    submitting: "正在提交..."
+    latest: "最新任务"
