@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+hr {
+  margin: 5px 0 5px 0;
+}
 .mission-show {
   hr {
     margin: 5px 0 20px 0;
@@ -14,7 +17,7 @@
 .thumbnails {
   li.box {
     margin-left: 0;
-    margin-right: 20px;
+    margin-right: 12px;
   }
   .thumbnail {
     height: 104px;
@@ -96,5 +99,11 @@
   }
   .mission-name {
     padding: 10px 0;
+  }
+  .event {
+    padding: 10px 0;
+    span {
+      margin: 0 5px;
+    }
   }
 }

@@ -4,6 +4,7 @@ class Mission < ActiveRecord::Base
   belongs_to :assigned_to, class_name: "User"
 
   has_many :comments, :as => :commentable
+  has_many :events, :as => :eventable
 
   validates_presence_of :name, :description, :status
 
