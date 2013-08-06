@@ -2,17 +2,28 @@ h4 = t('missions.index')
 hr
 
 .row-fluid
-  .span12
-
+  .span8
     ul.thumbnails
       - @missions.each do |mission|
-        li.span3.box
+        li.span4.box
           .thumbnail
             .caption
-              h5 = link_to mission.name, mission
+              h5 = link_to mission.name.truncate(15), mission
               p = mission.description.truncate(25).html_safe
 
       br
+    - if current_user
+      = link_to t('missions.create'), new_mission_path
 
-- if current_user
-  = link_to t('missions.create'), new_mission_path
+  .span4
+    .events.well.latest
+      h5 = t("events.latest")
+      hr
+      - @events.each do |event|
+        .event
+          = link_to event.user.nickname, event.user.github_homepage
+          span.action
+            = t("common.#{event.action}") + "了"
+            = t("activerecord.attributes.#{event.eventable_type.downcase}.title")
+          = link_to event.eventable.name, event.eventable
+

@@ -5,8 +5,10 @@ class CommentsController < ApplicationController
     @comment = @mission.comments.build(comment_params)
     @comment.user = current_user
 
-    @comment.save
-    render layout: false
+    if @comment.save
+      @mission.events.create(user: current_user, action: "comment")
+      render layout: false
+    end
   end
 
   def preview
