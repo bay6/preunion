@@ -7,5 +7,6 @@
     $(".new-comment textarea").css("display", "block").val('');
     $(".editor-toolbar .preview").removeClass("active");
     $(".editor-toolbar .edit").addClass("active");
+    $(".comments_count > span").html("共收到<%= @mission.comments.count %>条评论")
   }
 <% end %>
